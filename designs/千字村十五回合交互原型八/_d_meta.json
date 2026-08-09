@@ -1,0 +1,18 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "千字村十五回合交互": {
+      "versions": [
+        {
+          "path": "千字村十五回合交互.html",
+          "createdAt": "2026-08-09T07:05:21.756Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-08-09T07:05:21.756Z",
+  "updatedAt": "2026-08-09T07:05:21.757Z"
+}
