@@ -169,7 +169,7 @@ Commit:
 
 ## Phase 4：优化与自动化检查
 
-Status: in_progress
+Status: completed
 
 Scope:
 - 将场景图转换为 WebP，按回合加载；
@@ -187,12 +187,20 @@ Verification:
 - `npm run test:e2e`
 - `npm run build`
 
+Result:
+- 29 张原型 PNG 已转为 WebP，并与新增终局凝视图共同控制在约 5.22 MB；
+- 首屏只请求当前标题场景，不提前加载十五回合场景图；
+- 8 项规则与内容完整性测试覆盖容量、可见记忆、中文显示名称、15 回合和人工编写选择；
+- Playwright 在手机尺寸自动走完序章、旧碑、15 回合、六幕凝视、灾后五地点和村志附录；
+- 平板和桌面尺寸分别检查终局凝视与横向溢出；
+- `.github/workflows/game-ci.yml` 在 Pull Request 和 `main` 推送时执行同一组质量门禁。
+
 Commit:
 - Expected commit message: `ci: 增加游戏检查与资源优化`
 
 ## Phase 5：GitHub Pages 发布与线上验收
 
-Status: pending
+Status: in_progress
 
 Scope:
 - 配置 GitHub Pages 使用 GitHub Actions；

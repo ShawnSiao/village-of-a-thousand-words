@@ -1,0 +1,42 @@
+name: 游戏检查
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: 类型、规则、构建与十五回合流程
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v7
+
+      - name: 配置 Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: game/package-lock.json
+
+      - name: 安装依赖
+        working-directory: game
+        run: npm ci
+
+      - name: 执行类型、规则与构建检查
+        working-directory: game
+        run: npm run check
+
+      - name: 安装浏览器
+        working-directory: game
+        run: npx playwright install --with-deps chromium
+
+      - name: 走完十五回合并检查响应式终局
+        working-directory: game
+        run: npm run test:e2e

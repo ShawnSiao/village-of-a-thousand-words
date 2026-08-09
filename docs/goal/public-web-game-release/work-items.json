@@ -62,17 +62,23 @@
     {
       "id": "phase-4-tests-optimization",
       "title": "完成自动化检查与资源优化",
-      "status": "in_progress",
+      "status": "done",
       "source": "game/src/tests and .github/workflows",
       "batch": 4,
       "notes": "类型、内容、规则、移动端和完整流程验证。",
-      "evidence": [],
+      "evidence": [
+        "npm run check:all 通过",
+        "8 项规则与内容测试通过",
+        "Playwright 自动走完 15 回合、六幕凝视、五地点与村志附录",
+        "390x844、768x1024、1440x900 响应式检查通过",
+        "30 张 WebP 正式资源合计约 5.22 MB"
+      ],
       "updated_at": "2026-08-09"
     },
     {
       "id": "phase-5-pages-release",
       "title": "发布 GitHub Pages 并在线验收",
-      "status": "pending",
+      "status": "in_progress",
       "source": ".github/workflows/deploy-pages.yml",
       "batch": 5,
       "notes": "发布 game/dist 并验证公开 URL。",

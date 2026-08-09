@@ -6,16 +6,19 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run",
+    "test": "vitest run src/tests",
+    "test:e2e": "playwright test",
     "test:watch": "vitest",
     "build": "vite build",
-    "check": "npm run typecheck && npm test && npm run build"
+    "check": "npm run typecheck && npm test && npm run build",
+    "check:all": "npm run check && npm run test:e2e"
   },
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "1.62.1",
     "@types/node": "26.2.0",
     "@types/react": "18.3.28",
     "@types/react-dom": "18.3.7",
