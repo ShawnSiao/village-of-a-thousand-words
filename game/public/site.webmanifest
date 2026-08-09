@@ -1,0 +1,19 @@
+{
+  "name": "千字村——一座村庄能记住什么，就会成为什么",
+  "short_name": "千字村",
+  "description": "十五回合中文叙事决策游戏。",
+  "lang": "zh-CN",
+  "start_url": "/village-of-a-thousand-words/",
+  "scope": "/village-of-a-thousand-words/",
+  "display": "standalone",
+  "background_color": "#0d0c0b",
+  "theme_color": "#0d0c0b",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
