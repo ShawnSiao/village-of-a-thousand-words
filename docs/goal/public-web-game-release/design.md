@@ -105,7 +105,7 @@ Commit:
 
 ## Phase 2：正式游戏工程与规则迁移
 
-Status: in_progress
+Status: completed
 
 Scope:
 - 建立 `game/` Vite + React + TypeScript 应用；
@@ -126,12 +126,19 @@ Verification:
 - `npm test`
 - `npm run build`
 
+Result:
+- 已建立 `game/` Vite 8 + React 18 + TypeScript 7 工程；
+- 已迁移完整 15 回合、25 张记忆卡、红线托付、记忆回声和浏览器存档；
+- 已移除运行时 CDN React 与浏览器 Babel；
+- 已将容量、可见记忆和中文版本名称接入 TypeScript 规则函数；
+- 类型检查、8 项规则与内容测试、正式构建均已通过。
+
 Commit:
 - Expected commit message: `feat: 迁移十五回合正式游戏工程`
 
 ## Phase 3：移动端与终局情感体验
 
-Status: pending
+Status: in_progress
 
 Scope:
 - 移动端采用顺序式阅读与编辑流程；
