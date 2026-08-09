@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《千字村》第一幕纸面卡组</title>
+  <style>
+    :root {
+      --ink: #201b15;
+      --paper: #e8ddc4;
+      --paper-deep: #c5b18b;
+      --red: #8d3326;
+      --stone: #3b3832;
+      --line: rgba(76,55,35,.28);
+      --serif: "Songti SC", "Noto Serif SC", "STSong", serif;
+      --display: "STKaiti", "KaiTi", serif;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html, body, #root { margin: 0; min-height: 100%; }
+    body {
+      color: var(--ink);
+      font-family: var(--serif);
+      background:
+        linear-gradient(90deg, rgba(91,63,34,.025) 1px, transparent 1px),
+        #b9ae98;
+      background-size: 24px 24px;
+    }
+    button, a { font: inherit; }
+    .paper-app { min-height: 100vh; }
+    .paper-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 28px;
+      color: #eee4d1;
+      background: rgba(28,25,21,.96);
+      box-shadow: 0 8px 30px rgba(0,0,0,.18);
+    }
+    .paper-brand { font-family: var(--display); font-size: 24px; letter-spacing: .12em; }
+    .paper-actions { display: flex; align-items: center; gap: 8px; }
+    .paper-actions button, .paper-actions a {
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid rgba(232,221,196,.32);
+      background: transparent;
+      color: #d9ccb4;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .paper-actions button:hover, .paper-actions a:hover, .paper-actions .active {
+      border-color: #d7bf91;
+      color: #fff4df;
+      background: rgba(215,191,145,.1);
+    }
+    .paper-main { width: min(1400px, calc(100% - 48px)); margin: 28px auto 70px; }
+    .paper-intro {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 1px;
+      margin-bottom: 24px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      box-shadow: 0 16px 50px rgba(57,42,26,.16);
+    }
+    .paper-intro > div { padding: 30px; background: var(--paper); }
+    .paper-intro h1 { margin: 0 0 12px; font-family: var(--display); font-size: 38px; font-weight: 500; letter-spacing: .08em; }
+    .paper-intro p { margin: 0; max-width: 760px; line-height: 1.8; color: #61513e; }
+    .capacity-block { display: grid; place-items: center; text-align: center; background: var(--stone) !important; color: #eee3ce; }
+    .capacity-block strong { font-size: 34px; font-weight: 500; }
+    .capacity-block span { display: block; margin-top: 5px; color: #b8a98e; font-size: 12px; letter-spacing: .12em; }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .paper-card {
+      position: relative;
+      break-inside: avoid;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: 0 10px 28px rgba(57,42,26,.12);
+    }
+    .paper-card::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(76,55,35,.16);
+      pointer-events: none;
+    }
+    .card-image { width: 100%; height: 190px; object-fit: cover; filter: saturate(.72) contrast(1.02); display: block; }
+    .card-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 22px 14px; }
+    .card-head h2 { margin: 0; font-family: var(--display); font-size: 25px; font-weight: 500; letter-spacing: .08em; }
+    .card-kind { color: #846a4b; font-size: 11px; letter-spacing: .16em; }
+    .variant-stack { display: grid; gap: 1px; margin: 0 8px 8px; background: var(--line); border: 1px solid var(--line); }
+    .paper-variant { padding: 16px; background: rgba(240,231,211,.94); }
+    .paper-variant:first-child { background: #ded0b2; }
+    .variant-head { display: flex; justify-content: space-between; gap: 14px; color: #5a4733; font-size: 13px; }
+    .variant-head strong { font-weight: 600; }
+    .variant-head span { color: #8c7151; white-space: nowrap; }
+    .paper-variant p { margin: 10px 0 0; line-height: 1.75; font-size: 14px; }
+    .hint { padding-top: 9px; border-top: 1px solid rgba(76,55,35,.12); color: #79664f; font-size: 11px !important; }
+    .cut-mark { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; display: grid; place-items: center; background: var(--red); color: #f3dfc1; font-family: var(--display); }
+    .empty-state { padding: 80px; text-align: center; }
+
+    @media print {
+      @page { size: A4 landscape; margin: 9mm; }
+      body { background: white; }
+      .paper-topbar { display: none; }
+      .paper-main { width: 100%; margin: 0; }
+      .paper-intro { box-shadow: none; margin-bottom: 8mm; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); gap: 7mm; }
+      .paper-card { box-shadow: none; page-break-inside: avoid; }
+      .card-image { height: 42mm; }
+    }
+    @media (max-width: 900px) {
+      .card-grid, .paper-intro { grid-template-columns: 1fr; }
+      .paper-actions button:nth-child(-n+2) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"><div class="empty-state">正在铺开纸面卡组……</div></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="data.jsx"></script>
+  <script type="text/babel" src="paper.jsx"></script>
+</body>
+</html>

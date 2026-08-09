@@ -1,0 +1,108 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "千字村入口体验": {
+      "versions": [
+        {
+          "path": "千字村入口体验.html",
+          "createdAt": "2026-08-08T17:19:34.744Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "styles.css": {
+      "versions": [
+        {
+          "path": "styles.css",
+          "createdAt": "2026-08-08T17:19:34.808Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "app.jsx": {
+      "versions": [
+        {
+          "path": "app.jsx",
+          "createdAt": "2026-08-08T17:19:34.856Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "data.jsx": {
+      "versions": [
+        {
+          "path": "data.jsx",
+          "createdAt": "2026-08-08T17:19:34.905Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "图片原型说明.md": {
+      "versions": [
+        {
+          "path": "图片原型说明.md",
+          "createdAt": "2026-08-08T17:19:34.953Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "设计说明.md": {
+      "versions": [
+        {
+          "path": "设计说明.md",
+          "createdAt": "2026-08-08T17:19:35.005Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "01-标题页图片原型.png": {
+      "versions": [
+        {
+          "path": "assets/imagegen/01-标题页图片原型.png",
+          "createdAt": "2026-08-08T17:19:35.055Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "02-序章图片原型.png": {
+      "versions": [
+        {
+          "path": "assets/imagegen/02-序章图片原型.png",
+          "createdAt": "2026-08-08T17:19:35.106Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "03-旧碑阅读图片原型.png": {
+      "versions": [
+        {
+          "path": "assets/imagegen/03-旧碑阅读图片原型.png",
+          "createdAt": "2026-08-08T17:19:35.154Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "04-玩法教学图片原型.png": {
+      "versions": [
+        {
+          "path": "assets/imagegen/04-玩法教学图片原型.png",
+          "createdAt": "2026-08-08T17:19:35.203Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "05-既有玩法首图.png": {
+      "versions": [
+        {
+          "path": "assets/imagegen/05-既有玩法首图.png",
+          "createdAt": "2026-08-08T17:19:35.251Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-08-08T17:19:34.751Z",
+  "updatedAt": "2026-08-08T17:19:35.252Z"
+}

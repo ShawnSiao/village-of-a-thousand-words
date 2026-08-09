@@ -1,0 +1,861 @@
+{
+  "schemaVersion": 1,
+  "title": "《千字村》回合 1～5 纸面原型记忆卡",
+  "countingRule": "每个可见汉字、数字和标点各计 1 字；空白字符不计入容量。",
+  "capacity": 1000,
+  "initialCards": [
+    "M00",
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09"
+  ],
+  "roundCards": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05"
+  ],
+  "cards": [
+    {
+      "id": "M00",
+      "source": "initial",
+      "title": "开村记",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "先祖踏着退去的洪水来到此地，以七日七夜筑起石堤，又在河心斩断恶蛟。河水自此归顺，众人便立千字碑，约定后世只记有益于村庄之事。每逢夏末，村民应向河中投下白石，感谢先祖留下土地与姓名。",
+          "cost": 90,
+          "keeps": [
+            "founding_myth",
+            "stele_origin",
+            "river_ritual"
+          ],
+          "loses": [],
+          "beliefs": {
+            "ancestor_faith": 2
+          }
+        },
+        {
+          "id": "rule",
+          "text": "先祖在洪水后建立村庄与千字碑，约定只让有益之事留给后人。",
+          "cost": 28,
+          "keeps": [
+            "stele_origin"
+          ],
+          "loses": [
+            "dragon_myth",
+            "river_ritual"
+          ],
+          "beliefs": {
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "myth",
+          "text": "先祖斩断恶蛟、降伏洪水，为后人留下土地、姓名与千字碑。",
+          "cost": 27,
+          "keeps": [
+            "founding_myth",
+            "stele_origin"
+          ],
+          "loses": [
+            "river_ritual_rule"
+          ],
+          "beliefs": {
+            "ancestor_faith": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "M01",
+      "source": "initial",
+      "title": "东桥水刻",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "东桥桥墩刻有三道水痕。水到第一痕，应收起渡船；到第二痕，应把粮袋移上高处；连续三日暴雨且水漫第三痕时，全村须在天黑前撤到北坡。撤离时先送病者和孩子，不可停留抢救屋中财物。",
+          "cost": 85,
+          "keeps": [
+            "flood_marker_1",
+            "flood_marker_2",
+            "flood_marker_3",
+            "evacuate_north_slope",
+            "vulnerable_first"
+          ],
+          "loses": [],
+          "beliefs": {
+            "pragmatism": 2,
+            "mutual_aid": 1
+          }
+        },
+        {
+          "id": "warning",
+          "text": "连续三日暴雨且水漫东桥第三痕时，全村须在天黑前撤到北坡。",
+          "cost": 28,
+          "keeps": [
+            "flood_marker_3",
+            "evacuate_north_slope"
+          ],
+          "loses": [
+            "early_flood_actions",
+            "vulnerable_first"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "people_first",
+          "text": "洪水撤离时先送病者和孩子，不可为了屋中财物返回险地。",
+          "cost": 26,
+          "keeps": [
+            "vulnerable_first"
+          ],
+          "loses": [
+            "flood_markers",
+            "evacuate_north_slope"
+          ],
+          "beliefs": {
+            "mutual_aid": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "source": "initial",
+      "title": "前次洪水死者",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "十五年前大水夜，顾山、叶青、童二、陈嫂、柳禾、杜平、齐娘、陆幺未能登上北坡。八人的名字须在每次修堤前读出，使后来者知道河水夺走的不是一个数目，而是曾同桌吃饭、同路归家的人。",
+          "cost": 86,
+          "keeps": [
+            "previous_flood",
+            "eight_names",
+            "read_names_before_repair"
+          ],
+          "loses": [],
+          "beliefs": {
+            "mutual_aid": 2
+          }
+        },
+        {
+          "id": "count",
+          "text": "十五年前的大水夺走八名村民，此后修堤不可懈怠。",
+          "cost": 23,
+          "keeps": [
+            "previous_flood",
+            "death_count",
+            "repair_warning"
+          ],
+          "loses": [
+            "eight_names"
+          ],
+          "beliefs": {
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "ritual",
+          "text": "每次修堤前须读出洪水死者的名字，提醒后来者敬畏河水。",
+          "cost": 26,
+          "keeps": [
+            "read_names_before_repair",
+            "respect_river"
+          ],
+          "loses": [
+            "eight_names",
+            "death_count"
+          ],
+          "beliefs": {
+            "ancestor_faith": 1,
+            "mutual_aid": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "source": "initial",
+      "title": "苦草残方",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "苦草治久热，取根七片、青叶三片，以井水两碗煎至一碗；成人早晚各半碗，幼童只用三分之一。服后若手脚发冷，应停药并饮温水。旧方缺少落款，杜衡认为末句可能是后人补入，使用时须先辨脉象。",
+          "cost": 89,
+          "keeps": [
+            "fever_recipe",
+            "child_dose",
+            "cold_warning",
+            "recipe_uncertainty"
+          ],
+          "loses": [],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "dose",
+          "text": "久热用苦草根七片、青叶三片、井水两碗煎至一碗；幼童只服三分之一。",
+          "cost": 32,
+          "keeps": [
+            "fever_recipe",
+            "child_dose"
+          ],
+          "loses": [
+            "cold_warning",
+            "recipe_uncertainty"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "warning",
+          "text": "苦草可以治久热，但幼童必须减量，服后手脚发冷者应立即停药。",
+          "cost": 29,
+          "keeps": [
+            "fever_treatment",
+            "child_dose",
+            "cold_warning"
+          ],
+          "loses": [
+            "exact_recipe"
+          ],
+          "beliefs": {
+            "pragmatism": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "M04",
+      "source": "initial",
+      "title": "荒年分粮约",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "若连续两季歉收，粮仓先按人口发七日口粮，再由各家交出余粮统一分配。里正、祭者和守字人不得先取。外来旅人可领三日口粮，但要参与修堤或采药。不得以姓氏、旧怨和祭礼次序决定谁先吃饭。",
+          "cost": 88,
+          "keeps": [
+            "ration_method",
+            "leaders_not_first",
+            "guest_ration",
+            "equal_ration"
+          ],
+          "loses": [],
+          "beliefs": {
+            "mutual_aid": 2,
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "method",
+          "text": "连续两季歉收时，粮仓先按人口发七日口粮，再统一分配各家余粮。",
+          "cost": 30,
+          "keeps": [
+            "ration_method"
+          ],
+          "loses": [
+            "leaders_not_first",
+            "guest_ration",
+            "equal_ration"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "principle",
+          "text": "荒年分粮不得按身份、姓氏和旧怨决定先后，掌权者也不得先取。",
+          "cost": 29,
+          "keeps": [
+            "leaders_not_first",
+            "equal_ration"
+          ],
+          "loses": [
+            "ration_method",
+            "guest_ration"
+          ],
+          "beliefs": {
+            "mutual_aid": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "M05",
+      "source": "initial",
+      "title": "柳氏造桥记",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "柳家三代负责修建东桥。第一代柳石定下榫卯，第二代柳川加高桥面，柳木接手后换用山中硬木。每次重修须保留旧桥一段木梁，刻上工匠姓名，以免后人只记得桥仍在，却不知道是谁在洪水后重新把两岸连起。",
+          "cost": 93,
+          "keeps": [
+            "bridge_joinery",
+            "raised_bridge",
+            "hardwood",
+            "liu_lineage",
+            "name_builders"
+          ],
+          "loses": [],
+          "beliefs": {
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "method",
+          "text": "东桥重修须用柳家榫卯、加高桥面并换用山中硬木。",
+          "cost": 23,
+          "keeps": [
+            "bridge_joinery",
+            "raised_bridge",
+            "hardwood"
+          ],
+          "loses": [
+            "liu_lineage",
+            "name_builders"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "names",
+          "text": "柳石、柳川、柳木三代修建东桥，重修后必须在旧梁上留下工匠姓名。",
+          "cost": 31,
+          "keeps": [
+            "liu_lineage",
+            "name_builders"
+          ],
+          "loses": [
+            "bridge_methods"
+          ],
+          "beliefs": {
+            "mutual_aid": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "M06",
+      "source": "initial",
+      "title": "祭河旧规",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "夏末祭河分三日：首日清理河岸，次日把白石投入水中，末日由祭者诵读开村记。祭礼不是求河水听命，而是提醒村民敬畏水势，不在汛期争占河滩。若祭礼与撤离相冲突，应先撤离，礼可来年补行。",
+          "cost": 88,
+          "keeps": [
+            "river_ritual_steps",
+            "respect_floodplain",
+            "evacuation_over_ritual"
+          ],
+          "loses": [],
+          "beliefs": {
+            "ancestor_faith": 1,
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "safety",
+          "text": "祭河是为了提醒村民敬畏水势，不在汛期占用河滩；遇险时撤离先于祭礼。",
+          "cost": 33,
+          "keeps": [
+            "respect_floodplain",
+            "evacuation_over_ritual"
+          ],
+          "loses": [
+            "river_ritual_steps"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "rite",
+          "text": "夏末须清理河岸、投下白石并诵读开村记，以此感谢先祖、敬畏河水。",
+          "cost": 31,
+          "keeps": [
+            "river_ritual_steps",
+            "respect_river"
+          ],
+          "loses": [
+            "evacuation_over_ritual"
+          ],
+          "beliefs": {
+            "ancestor_faith": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "source": "initial",
+      "title": "守字人训",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "守字人不得替活人编造功劳，也不得因死者无法争辩便删去其名。碑上每多一件新事，必有一件旧事变短。删去之前，应先问这句话保护了谁，又让谁继续被看见。若仍不得不删，须亲手读完最后一遍。",
+          "cost": 89,
+          "keeps": [
+            "no_false_credit",
+            "protect_dead_names",
+            "read_before_delete"
+          ],
+          "loses": [],
+          "beliefs": {}
+        },
+        {
+          "id": "truth",
+          "text": "守字人不得编造功劳，也不得因为死者无法争辩便删去其名。",
+          "cost": 27,
+          "keeps": [
+            "no_false_credit",
+            "protect_dead_names"
+          ],
+          "loses": [
+            "read_before_delete"
+          ],
+          "beliefs": {}
+        },
+        {
+          "id": "ritual",
+          "text": "旧事不得不删时，守字人须先问它保护了谁，再亲手读完最后一遍。",
+          "cost": 30,
+          "keeps": [
+            "read_before_delete"
+          ],
+          "loses": [
+            "no_false_credit",
+            "protect_dead_names"
+          ],
+          "beliefs": {}
+        }
+      ]
+    },
+    {
+      "id": "M08",
+      "source": "initial",
+      "title": "北坡避难规",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "北坡旧祠是洪水避难处。警钟连响三次后，各户须带一日干粮和一只水罐前往，不得赶牲畜堵住山道。药师在祠内清点伤病者，木匠检查屋梁，摆渡人最后离开河岸。所有到达者都要在门板上留下姓名，以免有人被遗忘在水中。",
+          "cost": 100,
+          "keeps": [
+            "north_slope_shelter",
+            "evacuation_supplies",
+            "no_livestock_on_path",
+            "evacuation_roles",
+            "arrival_name_check"
+          ],
+          "loses": [],
+          "beliefs": {
+            "pragmatism": 1,
+            "mutual_aid": 1
+          }
+        },
+        {
+          "id": "supplies",
+          "text": "洪水避难时，各户带一日干粮和一只水罐前往北坡旧祠，不得赶牲畜堵住山道。",
+          "cost": 35,
+          "keeps": [
+            "north_slope_shelter",
+            "evacuation_supplies",
+            "no_livestock_on_path"
+          ],
+          "loses": [
+            "evacuation_roles",
+            "arrival_name_check"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "roles",
+          "text": "警钟三响后全村撤往北坡；药师清点伤者，木匠检查屋梁，摆渡人最后离岸。",
+          "cost": 34,
+          "keeps": [
+            "north_slope_shelter",
+            "evacuation_roles"
+          ],
+          "loses": [
+            "evacuation_supplies",
+            "no_livestock_on_path",
+            "arrival_name_check"
+          ],
+          "beliefs": {
+            "mutual_aid": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "M09",
+      "source": "initial",
+      "title": "村民名册",
+      "initialVariant": "full",
+      "variants": [
+        {
+          "id": "full",
+          "text": "千字村如今现有三十九人，分属柳、杜、顾、陈、叶五姓。柳木与女小满住东桥南，杜衡住药圃旁，祝婆独居河祠，阿禾寄住渡口。名册每三年核验一次，出生、死亡、婚配与迁入都须由守字人补记；没有写入名册的人只能暂居一季。",
+          "cost": 103,
+          "keeps": [
+            "village_population",
+            "five_surnames",
+            "core_residents",
+            "registry_rule",
+            "unregistered_are_temporary"
+          ],
+          "loses": [],
+          "beliefs": {}
+        },
+        {
+          "id": "rule",
+          "text": "名册每三年核验一次，出生、死亡、婚配与迁入都须补记；无名者只能暂居一季。",
+          "cost": 36,
+          "keeps": [
+            "registry_rule",
+            "unregistered_are_temporary"
+          ],
+          "loses": [
+            "village_population",
+            "five_surnames",
+            "core_residents"
+          ],
+          "beliefs": {}
+        },
+        {
+          "id": "people",
+          "text": "柳木与小满住东桥南，杜衡住药圃旁，祝婆住河祠，阿禾住渡口。",
+          "cost": 29,
+          "keeps": [
+            "core_residents"
+          ],
+          "loses": [
+            "village_population",
+            "five_surnames",
+            "registry_rule",
+            "unregistered_are_temporary"
+          ],
+          "beliefs": {
+            "mutual_aid": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "E01",
+      "source": "round_1",
+      "title": "东桥洪水",
+      "initialVariant": null,
+      "variants": [
+        {
+          "id": "full",
+          "text": "第零年秋，暴雨连下三日，东桥水位越过第三道刻痕。上游来客祁生先看见险情，阿禾随即驾船折返，在桥断前救下柳木。村民当夜撤上北坡，无人死亡，但东桥和河岸六间房屋被洪水冲走。",
+          "cost": 84,
+          "keeps": [
+            "flood_marker_3",
+            "qisheng_warned",
+            "ahe_saved_liu",
+            "evacuate_north_slope",
+            "flood_losses"
+          ],
+          "loses": [],
+          "beliefs": {
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "warning",
+          "text": "祁生识得东桥第三道水痕并发出警告，村民及时撤上北坡。",
+          "cost": 26,
+          "keeps": [
+            "flood_marker_3",
+            "qisheng_warned",
+            "evacuate_north_slope"
+          ],
+          "loses": [
+            "ahe_saved_liu",
+            "flood_losses"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "hero",
+          "text": "东桥将断时，阿禾独自驾船救下柳木，带领村民逃过大水。",
+          "cost": 26,
+          "keeps": [
+            "ahe_saved_liu",
+            "ahe_hero"
+          ],
+          "loses": [
+            "qisheng_warned",
+            "flood_marker_3",
+            "flood_losses"
+          ],
+          "beliefs": {
+            "mutual_aid": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "source": "round_2",
+      "title": "无籍之人",
+      "initialVariant": null,
+      "variants": [
+        {
+          "id": "full",
+          "text": "洪水过后，祁生请求在村里留下。他来自被上游塌方掩埋的石湾，会修水渠、辨河床，却没有家谱和旧村证明。柳木只肯称他为来客，阿禾愿意担保，小满问守字人：住在这里的人，什么时候才算村民？",
+          "cost": 89,
+          "keeps": [
+            "qisheng_origin",
+            "qisheng_skills",
+            "ahe_guarantee",
+            "belonging_question"
+          ],
+          "loses": [],
+          "beliefs": {}
+        },
+        {
+          "id": "worker",
+          "text": "上游来客祁生暂居村中，以修渠治水换取粮食。",
+          "cost": 21,
+          "keeps": [
+            "qisheng_skills",
+            "qisheng_worker"
+          ],
+          "loses": [
+            "qisheng_origin",
+            "qisheng_villager",
+            "ahe_guarantee"
+          ],
+          "beliefs": {
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "villager",
+          "text": "祁生失去故乡后被千字村接纳，自此也是村民。",
+          "cost": 21,
+          "keeps": [
+            "qisheng_origin",
+            "qisheng_villager"
+          ],
+          "loses": [
+            "qisheng_skills",
+            "ahe_guarantee"
+          ],
+          "beliefs": {
+            "mutual_aid": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "source": "round_3",
+      "title": "苦草之方",
+      "initialVariant": null,
+      "variants": [
+        {
+          "id": "full",
+          "text": "第三年春，热病传入村中。杜衡以苦草根七片、青叶三片、井水两碗煎至一碗，救下十二人，并告诫幼童只服成人三分之一。小满连续七夜帮他分药，第一次独自认出了苦草与有毒的青耳叶。",
+          "cost": 84,
+          "keeps": [
+            "fever_recipe",
+            "child_dose",
+            "duheng_saved_twelve",
+            "duheng_taught_xiaoman",
+            "distinguish_poison_leaf"
+          ],
+          "loses": [],
+          "beliefs": {
+            "pragmatism": 1
+          }
+        },
+        {
+          "id": "recipe",
+          "text": "久热用苦草根七片、青叶三片、井水两碗煎至一碗，幼童只服三分之一。",
+          "cost": 32,
+          "keeps": [
+            "fever_recipe",
+            "child_dose"
+          ],
+          "loses": [
+            "duheng_saved_twelve",
+            "duheng_taught_xiaoman",
+            "distinguish_poison_leaf"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "legacy",
+          "text": "杜衡以苦草治好热病，并把辨药方法教给小满。",
+          "cost": 21,
+          "keeps": [
+            "fever_treatment",
+            "duheng_taught_xiaoman"
+          ],
+          "loses": [
+            "exact_recipe",
+            "child_dose",
+            "duheng_saved_twelve"
+          ],
+          "beliefs": {
+            "mutual_aid": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "source": "round_4",
+      "title": "重修东桥",
+      "initialVariant": null,
+      "variants": [
+        {
+          "id": "full",
+          "text": "第五年，柳木主持重修东桥，沿用祖传榫卯，并采纳祁生抬高桥基的办法。阿禾带人运木，小满替工匠记下尺寸。桥成后，柳木要求刻上柳家姓名，祁生说没有众人相助，任何人的名字都托不起一座桥。",
+          "cost": 89,
+          "keeps": [
+            "bridge_joinery",
+            "raised_bridge",
+            "liu_credit",
+            "qisheng_credit",
+            "ahe_labor",
+            "xiaoman_recorded_measurements"
+          ],
+          "loses": [],
+          "beliefs": {}
+        },
+        {
+          "id": "method",
+          "text": "重修东桥须沿用柳家榫卯，并按祁生之法抬高桥基。",
+          "cost": 23,
+          "keeps": [
+            "bridge_joinery",
+            "raised_bridge",
+            "liu_credit",
+            "qisheng_credit"
+          ],
+          "loses": [
+            "ahe_labor",
+            "xiaoman_recorded_measurements"
+          ],
+          "beliefs": {
+            "pragmatism": 2
+          }
+        },
+        {
+          "id": "collective",
+          "text": "第五年，柳木、祁生、阿禾与村民共同重建东桥。",
+          "cost": 22,
+          "keeps": [
+            "liu_credit",
+            "qisheng_credit",
+            "ahe_credit",
+            "collective_bridge"
+          ],
+          "loses": [
+            "bridge_methods",
+            "xiaoman_recorded_measurements"
+          ],
+          "beliefs": {
+            "mutual_aid": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "source": "round_5",
+      "title": "祝婆的旧歌",
+      "initialVariant": null,
+      "variants": [
+        {
+          "id": "full",
+          "text": "第七年祭河前，祝婆唱出碑上没有的旧歌：最早来到河谷的先祖并未战胜洪水，而是从北方逃难而来。七名原住者分给他们粮食和土地。后来碑文容不下全部名字，七人被压成「河谷众人」，再被改成了降伏洪水的先祖。",
+          "cost": 97,
+          "keeps": [
+            "founders_were_refugees",
+            "seven_hosts_existed",
+            "history_was_rewritten",
+            "hosts_shared_land"
+          ],
+          "loses": [
+            "seven_host_names"
+          ],
+          "beliefs": {
+            "pragmatism": 1,
+            "mutual_aid": 1
+          }
+        },
+        {
+          "id": "principle",
+          "text": "千字村的先祖也曾是外来者，因为被人接纳，才得以在此安家。",
+          "cost": 28,
+          "keeps": [
+            "founders_were_refugees",
+            "hosts_shared_land",
+            "welcoming_principle"
+          ],
+          "loses": [
+            "seven_hosts_existed",
+            "history_was_rewritten"
+          ],
+          "beliefs": {
+            "mutual_aid": 2
+          }
+        },
+        {
+          "id": "myth",
+          "text": "先祖战胜洪水、收留四方来客，因此立下千字碑。",
+          "cost": 22,
+          "keeps": [
+            "founding_myth",
+            "welcoming_principle",
+            "stele_origin"
+          ],
+          "loses": [
+            "founders_were_refugees",
+            "seven_hosts_existed",
+            "history_was_rewritten"
+          ],
+          "beliefs": {
+            "ancestor_faith": 2,
+            "mutual_aid": 1
+          }
+        }
+      ]
+    }
+  ],
+  "initialCost": 911
+}

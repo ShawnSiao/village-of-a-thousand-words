@@ -1,0 +1,27 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "千字村第一幕": {
+      "versions": [
+        {
+          "path": "千字村第一幕.html",
+          "createdAt": "2026-08-08T14:48:18.656Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "纸面卡组": {
+      "versions": [
+        {
+          "path": "纸面卡组.html",
+          "createdAt": "2026-08-08T14:48:19.175Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-08-08T14:48:18.657Z",
+  "updatedAt": "2026-08-08T14:48:19.176Z"
+}

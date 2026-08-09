@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "title": "《千字村》15 回合最小可行版本工作清单",
+  "status_values": ["pending", "in_progress", "completed", "blocked"],
+  "items": [
+    {
+      "id": "MVP-00",
+      "display_name": "统一 5 幕 15 回合设计基线",
+      "status": "completed",
+      "depends_on": [],
+      "deliverables": [
+        "docs/design/mvp-15-round-production-plan-v2.md",
+        "docs/design/post-mvp-story-expansion-framework.md"
+      ],
+      "acceptance_criteria": [
+        "明确首篇固定为 15 回合",
+        "明确采用 5 幕、每幕 3 回合",
+        "明确现有版本为前五回合验证版"
+      ]
+    },
+    {
+      "id": "MVP-01",
+      "display_name": "重做标题页、序章和旧碑阅读",
+      "status": "pending",
+      "depends_on": ["MVP-00"],
+      "deliverables": [
+        "标题页交互原型",
+        "序章文本与过场",
+        "10 段开局记忆阅读界面",
+        "新游戏与继续游戏流程"
+      ],
+      "acceptance_criteria": [
+        "首次进入能够看到完整标题和副标题",
+        "未阅读设计说明的测试者能够说出守字人身份",
+        "测试者能够复述一千字和封存不可逆规则",
+        "现有界面参考图在玩法概览中清晰可见"
+      ]
+    },
+    {
+      "id": "MVP-02",
+      "display_name": "校准容量与第一回合教学",
+      "status": "pending",
+      "depends_on": ["MVP-01"],
+      "deliverables": [
+        "第一回合分步教学",
+        "回合 2 超限提示",
+        "回合 4 稳定超限配置",
+        "容量测试记录"
+      ],
+      "acceptance_criteria": [
+        "回合 1 的所有版本都能直接封存",
+        "最短路线最晚在回合 4 修改旧记忆",
+        "超限时明确提示下一步操作",
+        "容量调整不制造唯一最优短版本"
+      ]
+    },
+    {
+      "id": "MVP-03",
+      "display_name": "实现前五回合后果试演与章节总结",
+      "status": "pending",
+      "depends_on": ["MVP-02"],
+      "deliverables": [
+        "柳木与阿禾后果",
+        "祁生身份后果",
+        "小满医术后果",
+        "先祖与祁生后果",
+        "前五回合总结页"
+      ],
+      "acceptance_criteria": [
+        "每段后果能够回溯到具体碑文",
+        "结算列出被压缩和删除的具体内容",
+        "祁生直接回答和祝婆托付进入总结",
+        "不同价值取向的周目产生不同总结文本"
+      ]
+    },
+    {
+      "id": "MVP-04",
+      "display_name": "建立数据驱动的记忆与事件引擎",
+      "status": "pending",
+      "depends_on": ["MVP-03"],
+      "deliverables": [
+        "记忆数据结构",
+        "条件事件结构",
+        "记忆回声结构",
+        "托付结构",
+        "结局模块结构",
+        "中文显示名称映射"
+      ],
+      "acceptance_criteria": [
+        "回合 1 至 5 不依赖界面代码专用分支",
+        "所有内部标识均有独立中文显示名称",
+        "每个关键标签至少有一个未来用途",
+        "已经压缩的记忆不能恢复为完整版本"
+      ]
+    },
+    {
+      "id": "MVP-05",
+      "display_name": "制作回合 6 至 9",
+      "status": "pending",
+      "depends_on": ["MVP-04"],
+      "deliverables": [
+        "粮仓大火",
+        "新里正",
+        "祝婆辞世",
+        "热病重来"
+      ],
+      "acceptance_criteria": [
+        "回合 7 的里正结果由早期碑文决定",
+        "回合 8 形成姓名与生存知识的明确冲突",
+        "回合 9 具体呈现药方和传承差异",
+        "测试者能够正确解释至少 3 个后果来源"
+      ]
+    },
+    {
+      "id": "MVP-06",
+      "display_name": "制作回合 10 至 12",
+      "status": "pending",
+      "depends_on": ["MVP-05"],
+      "deliverables": [
+        "谁算村民",
+        "河床石痕",
+        "碑会说谎吗"
+      ],
+      "acceptance_criteria": [
+        "祁生审判由身份、功劳和开村记忆共同决定",
+        "河床预警能够进入终局准备",
+        "小满能够复述玩家早期回答",
+        "直接回答均有后续用途"
+      ]
+    },
+    {
+      "id": "MVP-07",
+      "display_name": "制作回合 13 至 15 和完整结局",
+      "status": "pending",
+      "depends_on": ["MVP-06"],
+      "deliverables": [
+        "开碑宣读",
+        "决堤之夜",
+        "传碑",
+        "4 种村庄形态",
+        "6 名人物尾声",
+        "最终村志",
+        "碑外残响"
+      ],
+      "acceptance_criteria": [
+        "最终洪水至少引用 5 段不同年代的记忆",
+        "人物救援与身份结果能够回溯",
+        "碑外残响列出具体姓名和知识",
+        "至少 4 种村庄形态存在可达路线"
+      ]
+    },
+    {
+      "id": "MVP-08",
+      "display_name": "增加历代村志与多周目比较",
+      "status": "pending",
+      "depends_on": ["MVP-07"],
+      "deliverables": [
+        "历代村志列表",
+        "两局碑文比较",
+        "已读内容加速播放",
+        "重新开始确认流程"
+      ],
+      "acceptance_criteria": [
+        "能够保存至少 3 局结果",
+        "比较界面不显示优劣评分",
+        "能够看出两局姓名、知识和信仰差异",
+        "重新开始不会误覆盖历代村志"
+      ]
+    },
+    {
+      "id": "MVP-09",
+      "display_name": "建立内容和因果自动验证",
+      "status": "pending",
+      "depends_on": ["MVP-04"],
+      "deliverables": [
+        "字数校验",
+        "引用完整性校验",
+        "中文显示名称校验",
+        "结局可达性校验",
+        "内部标识泄漏校验"
+      ],
+      "acceptance_criteria": [
+        "所有记忆文本字数准确",
+        "不存在悬空后续引用",
+        "玩家可见界面不显示英文内部标识",
+        "已知主结局均可通过自动路线到达"
+      ]
+    },
+    {
+      "id": "MVP-10",
+      "display_name": "完成无说明试玩与多周目验证",
+      "status": "pending",
+      "depends_on": ["MVP-07", "MVP-09"],
+      "deliverables": [
+        "无说明试玩记录",
+        "5 种角色化周目记录",
+        "因果理解统计",
+        "重玩意愿统计"
+      ],
+      "acceptance_criteria": [
+        "首次通关时间为 20 至 40 分钟",
+        "80% 的关键后果能够被正确归因",
+        "单局至少出现 3 次超过 10 秒的犹豫",
+        "不存在超过 70% 测试者稳定采用的单一策略",
+        "至少一半测试者主动表达重玩意愿"
+      ]
+    },
+    {
+      "id": "POST-01",
+      "display_name": "建立长期议题素材库",
+      "status": "pending",
+      "depends_on": ["MVP-10"],
+      "deliverables": [
+        "真实议题素材卡模板",
+        "首批短篇候选",
+        "敏感内容审阅清单",
+        "后世篇存档继承规则"
+      ],
+      "acceptance_criteria": [
+        "每个议题都能通过千字碑机制表达",
+        "不直接消费现实受害者经历",
+        "每个候选事件都有延迟后果",
+        "首篇 15 回合完成前不进入正式扩展制作"
+      ]
+    }
+  ]
+}
