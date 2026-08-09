@@ -1,0 +1,18 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "千字村十五回合详细证词": {
+      "versions": [
+        {
+          "path": "千字村十五回合详细证词.html",
+          "createdAt": "2026-08-09T09:27:07.397Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-08-09T09:27:07.398Z",
+  "updatedAt": "2026-08-09T09:35:17.071Z"
+}
