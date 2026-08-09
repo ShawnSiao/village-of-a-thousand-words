@@ -1,0 +1,18 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "千字村入口体验": {
+      "versions": [
+        {
+          "path": "千字村入口体验.html",
+          "createdAt": "2026-08-09T04:03:28.609Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-08-09T04:03:28.610Z",
+  "updatedAt": "2026-08-09T04:03:28.610Z"
+}
