@@ -78,11 +78,17 @@
     {
       "id": "phase-5-pages-release",
       "title": "发布 GitHub Pages 并在线验收",
-      "status": "in_progress",
+      "status": "done",
       "source": ".github/workflows/deploy-pages.yml",
       "batch": 5,
       "notes": "发布 game/dist 并验证公开 URL。",
-      "evidence": [],
+      "evidence": [
+        "https://shawnsiao.github.io/village-of-a-thousand-words/ 返回 200",
+        "GitHub Actions 游戏检查运行 31313730277 成功",
+        "GitHub Actions Pages 发布运行 31313730266 成功",
+        "390x844 公开页面无横向溢出且本地存档可恢复",
+        "site.webmanifest 与正式 JavaScript 资源返回 200"
+      ],
       "updated_at": "2026-08-09"
     }
   ]

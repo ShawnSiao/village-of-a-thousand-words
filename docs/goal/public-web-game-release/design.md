@@ -200,7 +200,7 @@ Commit:
 
 ## Phase 5：GitHub Pages 发布与线上验收
 
-Status: in_progress
+Status: completed
 
 Scope:
 - 配置 GitHub Pages 使用 GitHub Actions；
@@ -218,6 +218,15 @@ Verification:
 - `gh run list --workflow deploy-pages.yml`
 - `gh api repos/ShawnSiao/village-of-a-thousand-words/pages`
 - 使用真实浏览器访问公开 URL。
+
+Result:
+- GitHub Pages 已使用 GitHub Actions 作为发布源，并强制 HTTPS；
+- 公开试玩地址：`https://shawnsiao.github.io/village-of-a-thousand-words/`；
+- 「游戏检查」工作流 `31313730277` 成功；
+- 「发布公开试玩版」工作流 `31313730266` 成功；
+- 首页、站点清单和正式脚本均返回 200；
+- 使用 390 × 844 真实浏览器访问公开地址，标题页无横向溢出，主要按钮高度 52 px；
+- 已验证「接过红线」、刷新、返回标题页后的「继续旧村志」以及序章恢复。
 
 Commit:
 - Expected commit message: `deploy: 发布千字村公开试玩版`
