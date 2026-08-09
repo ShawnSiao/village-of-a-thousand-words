@@ -59,8 +59,14 @@
     {
       "编号": "阶段五",
       "名称": "收尾与下一批内容入口",
-      "状态": "进行中",
-      "证据": []
+      "状态": "已完成",
+      "证据": [
+        "designs/千字村入口体验原型三/设计说明.md",
+        "designs/千字村入口体验原型三/_d_meta.json",
+        "docs/goal/mvp-entry-experience-v3/verification.md",
+        "docs/goal/mvp-entry-experience-v3/rounds-6-15-entry.md",
+        "原型一和原型二未被覆盖"
+      ]
     }
   ]
 }
