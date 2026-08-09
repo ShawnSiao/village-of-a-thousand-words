@@ -138,7 +138,7 @@ Commit:
 
 ## Phase 3：移动端与终局情感体验
 
-Status: in_progress
+Status: completed
 
 Scope:
 - 移动端采用顺序式阅读与编辑流程；
@@ -153,15 +153,23 @@ Acceptance Criteria:
 - 同一主结局内部可因人物关系与知识差异产生不同尾声。
 
 Verification:
-- `npm run test:e2e -- --project=mobile-chrome`
-- `npm run test:e2e -- --project=desktop-chrome`
+- 使用真实浏览器以 390 × 844 视口从第 1 回合走到村志附录；
+- 使用 768 × 1024、1440 × 900 视口检查终局凝视；
+- `npm run test:e2e`
+
+Result:
+- 手机端碑文整理改为「选择写法、阅读碑文、选择记忆」三步工作区，候选版本和旧记忆在选择后仍可改选；
+- 序章、旧碑、回合事件、碑文编辑和终局均补齐返回操作；
+- 第 15 回合之后先进入六幕村民凝视，再走访五处灾后村庄，最后打开村志附录；
+- 终局按本局实际选择回溯生存知识、阿禾、祁生、小满、祝婆、红线托付与彻底离碑的旧事；
+- 真实通关在第 4、7、10、13 回合触发容量取舍，并以 995 / 1000 字完成第 15 回合封存。
 
 Commit:
 - Expected commit message: `feat: 完成移动端流程与反向凝视终局`
 
 ## Phase 4：优化与自动化检查
 
-Status: pending
+Status: in_progress
 
 Scope:
 - 将场景图转换为 WebP，按回合加载；

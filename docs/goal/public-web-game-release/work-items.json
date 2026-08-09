@@ -47,17 +47,22 @@
     {
       "id": "phase-3-mobile-ending",
       "title": "完成移动端流程与反向凝视终局",
-      "status": "in_progress",
+      "status": "done",
       "source": "game/src/screens",
       "batch": 3,
       "notes": "保留五地点结构，改为具体人物与选择回溯。",
-      "evidence": [],
+      "evidence": [
+        "390x844 真实浏览器完整通关 15 回合至村志附录",
+        "第 4、7、10、13 回合触发容量取舍且均可继续封存",
+        "六幕村民凝视回溯人物命运、托付与碑外残响",
+        "灾后五地点全部回溯到具体回合和碑文选择"
+      ],
       "updated_at": "2026-08-09"
     },
     {
       "id": "phase-4-tests-optimization",
       "title": "完成自动化检查与资源优化",
-      "status": "pending",
+      "status": "in_progress",
       "source": "game/src/tests and .github/workflows",
       "batch": 4,
       "notes": "类型、内容、规则、移动端和完整流程验证。",

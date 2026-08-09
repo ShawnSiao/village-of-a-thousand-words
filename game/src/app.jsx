@@ -576,9 +576,10 @@ function EventScreen(props) {
           })}
           <div className="event-action">
             {needsAnswer && !allAnswered ? <p>先完成上方回应，才能继续整理碑文。</p> : <p>证词不会自动成为公共记忆。下一步由你决定碑上的版本。</p>}
-            <button className="primary-button" type="button" disabled={needsAnswer && !allAnswered} onClick={props.onEnterEditor}>
-              整理本年碑文
-            </button>
+            <div className="event-action-buttons">
+              <button className="secondary-button" type="button" onClick={props.onBack}>返回回合开场</button>
+              <button className="primary-button" type="button" disabled={needsAnswer && !allAnswered} onClick={props.onEnterEditor}>整理本年碑文</button>
+            </div>
           </div>
         </aside>
       </div>
@@ -647,7 +648,7 @@ function MemoryRail(props) {
     );
   }
   return (
-    <aside className="memory-rail">
+    <aside className={"memory-rail mobile-editor-panel " + (props.mobileActive ? "mobile-active" : "")}>
       <section className="memory-rail-section current-memory-section">
         <div className="panel-heading"><span>本年新事</span><strong>必须先定稿</strong></div>
         {props.storyRound === 1 ? <p className="first-year-guide">这是守字人任期的第一年。先决定「东桥洪水」如何进入碑文；碑面不足时，再整理更早的旧事。</p> : null}
@@ -667,7 +668,7 @@ function MemoryRail(props) {
 function StelePreview(props) {
   const shown = props.variant || props.card.variants[0];
   return (
-    <main className="stone-stage">
+    <main className={"stone-stage mobile-editor-panel " + (props.mobileActive ? "mobile-active" : "")}>
       <article className="stele-card">
         <div className="stele-card-meta"><span>{props.isCurrent ? "本年新事" : "旧碑文"}</span><span>{props.isDeleted ? "拟从碑上删去" : props.isDraft ? "尚未选择版本" : labelForVariant(shown.id) + " · " + shown.cost + " 字"}</span></div>
         <h1>{props.card.title}</h1>
@@ -699,7 +700,7 @@ function VariantPanel(props) {
   const canSeal = props.currentReady && props.total <= props.capacity;
   const currentPledge = window.getPledgeState(props.card.id, props.selectedVariantId, props.directAnswers);
   return (
-    <aside className="variant-panel">
+    <aside className={"variant-panel mobile-editor-panel " + (props.mobileActive ? "mobile-active" : "")}>
       <div className="panel-heading">
         <span>{props.isCurrent ? "决定本年记述" : "整理旧记忆"}</span>
         <strong>{props.isCurrent ? "三种写法保留不同意义" : wasDeletedBeforeRound ? "这段记忆已在此前离开碑面" : wasShortenedBeforeRound ? "此前失去的细节不能恢复" : "封存前可以反复比较和改选"}</strong>
@@ -749,6 +750,7 @@ function VariantPanel(props) {
 }
 
 function EditorScreen(props) {
+  const [mobilePanel, setMobilePanel] = useState("versions");
   const card = findCard(props.memoryData, props.selectedId);
   const variantId = props.selections[props.selectedId];
   const variant = variantId ? findVariant(card, variantId) : null;
@@ -766,8 +768,13 @@ function EditorScreen(props) {
       <header className="editor-header">
         <div><span>千字碑</span><small>{props.story.year} · {props.story.title}</small></div>
         <Capacity total={props.total} capacity={props.memoryData.capacity} />
-        <button className="text-button" type="button" onClick={props.onReset}>重新开始</button>
+        <div className="editor-header-actions"><button className="text-button" type="button" onClick={props.onBack}>返回证词</button><button className="text-button" type="button" onClick={props.onReset}>重新开始</button></div>
       </header>
+      <nav className="mobile-editor-tabs" aria-label="碑文整理步骤">
+        <button className={mobilePanel === "versions" ? "current" : ""} type="button" onClick={function () { setMobilePanel("versions"); }}>选择写法</button>
+        <button className={mobilePanel === "preview" ? "current" : ""} type="button" onClick={function () { setMobilePanel("preview"); }}>阅读碑文</button>
+        <button className={mobilePanel === "memories" ? "current" : ""} type="button" onClick={function () { setMobilePanel("memories"); }}>选择记忆</button>
+      </nav>
       <OverflowBanner
         total={props.total}
         capacity={props.memoryData.capacity}
@@ -798,10 +805,11 @@ function EditorScreen(props) {
           directAnswers={props.directAnswers}
           roundSnapshot={props.roundSnapshot}
           storyRound={props.story.round}
-          onSelect={props.onSelect}
+          mobileActive={mobilePanel === "memories"}
+          onSelect={function (id) { props.onSelect(id); setMobilePanel("versions"); }}
           onUndo={props.onUndo}
         />
-        <StelePreview card={card} variant={variant} isCurrent={isCurrent} isDraft={isCurrent && !variantId} isDeleted={isDeleted} pledge={pledge} />
+        <StelePreview mobileActive={mobilePanel === "preview"} card={card} variant={variant} isCurrent={isCurrent} isDraft={isCurrent && !variantId} isDeleted={isDeleted} pledge={pledge} />
         <VariantPanel
           card={card}
           selectedVariantId={variantId}
@@ -812,6 +820,7 @@ function EditorScreen(props) {
           capacity={props.memoryData.capacity}
           directAnswers={props.directAnswers}
           priorVariantId={Object.prototype.hasOwnProperty.call(props.roundSnapshot || {}, card.id) ? props.roundSnapshot[card.id] : undefined}
+          mobileActive={mobilePanel === "versions"}
           onChoose={props.onChoose}
           onSeal={props.onSeal}
         />
@@ -902,6 +911,83 @@ function VillageInterludeScreen(props) {
             : <button className="paper-button" type="button" onClick={props.onContinue}>走到下一年</button>}
         </div>
       </article>
+    </section>
+  );
+}
+
+function GazeEndingScreen(props) {
+  const [beat, setBeat] = useState(0);
+  const selections = props.selections;
+  const warningKept = ["full", "warning"].includes(selections.E01) && ["full", "order"].includes(selections.E14);
+  const bridgeKept = ["full", "method"].includes(selections.E04);
+  const treatmentKept = ["full", "treatment"].includes(selections.E07);
+  const heroKept = ["full", "hero"].includes(selections.E01);
+  const qishengBelongs = selections.E02 === "villager" || selections.E10 === "useful_lie";
+  const namesKept = ["full", "one_name"].includes(selections.E08);
+  const sourceKept = selections.E12 === "full";
+  const acceptedPledges = ["E05", "E08", "E10", "E12"].map(function (id) {
+    return window.getPledgeState(id, selections[id], props.directAnswers);
+  }).filter(Boolean);
+  const brokenPledge = acceptedPledges.find(function (pledge) { return pledge.tone === "broken"; });
+  const deletedChanges = props.history.filter(function (change) { return change.toLabel === "从碑上删去"; }).slice(-2);
+  const beats = [
+    {
+      kicker: "第十五回合之后 · 洪水退去的第三天",
+      title: "你回到碑前。\n他们先看见了你。",
+      body: "六个人停下手里的事，望向同一个位置。没有人知道守字人站在村庄之外；他们只知道，自己这一生曾被某个人压缩成碑上的一句话。"
+    },
+    {
+      kicker: "三日洪水 · 村庄怎样活下来",
+      title: warningKept ? "钟声及时响了。\n但不是每个人都同时抵达北坡。" : "钟声响得更晚。\n有人靠私人记忆补上了碑文的缺口。",
+      body: (warningKept ? "第三道水痕和撤离次序仍能被读到。" : "预警或撤离次序没有同时留在碑上。") + (bridgeKept ? " 东桥的桥基与榫卯工法为最后一批人争取了时间。" : " 柳木只能凭仍在世者的经验临时加固东桥。") + (treatmentKept ? " 小满照着剂量救治病者。" : " 小满必须拿活人的身体补全药方没有留下的判断。")
+    },
+    {
+      kicker: "人物命运 · 阿禾与祁生",
+      title: "村庄记得一种功劳，\n未必记得一个完整的人。",
+      lines: [
+        ["阿禾", heroKept ? "碑上记得我回过头。后来每逢水涨，都有人先等我上船，像一个名字能替所有人判断危险。" : "那次折返没有留下名字。柳木仍然记得，但他已经老了；等他不在，村里只会留下‘有人曾经回头’。"],
+        ["祁生", qishengBelongs ? "这次我能以村民的身份敲钟，不必先证明一个无籍的人为什么有资格让大家离开。" : "村庄用了我的水尺三十年。洪水退后，灾后名册仍把我写成来客。"]
+      ]
+    },
+    {
+      kicker: "人物命运 · 小满与祝婆",
+      title: namesKept ? "至少有姓名穿过了三十年。" : "七个人再次变成了一个道理。",
+      lines: [
+        ["小满", treatmentKept ? "我能按碑上的剂量救人，也知道哪些判断来自杜衡。方法留下以后，师父不必永远替我证明资格。" : "我救下多数病者，也记住了一个因为剂量犹豫而错过的孩子。碑上少一行，我就用一个活人去试。"],
+        ["祝婆留下的河石", namesKept ? "小满把仍有姓名的河石放在碑座前。公共记忆不完整，但具体的人没有全部被合成一句善行。" : "七颗河石仍在小满的布袋里。碑上只有原则或神话，后来者再也无法逐个叫出他们。"]
+      ]
+    },
+    {
+      kicker: "碑外残响 · 只有守字人知道它们曾经存在",
+      title: "被磨去的没有回来。\n它们只是最后一次经过你。",
+      body: brokenPledge ? "你曾接下一项红线托付，却没有让它的最低要求留到终局：" + brokenPledge.detail : sourceKept ? "碑上保留了文字曾被改写的来源。下一任守字人至少知道，眼前的一千字不是从未改变的真相。" : "下一任守字人只能看见定稿，无法从碑上知道同一件事曾经还有哪些说法。",
+      echoes: deletedChanges.length ? deletedChanges : props.history.slice(-2)
+    },
+    {
+      kicker: "第三十年 · 传碑之秋",
+      title: "小满没有问你，\n当年是否选对。",
+      body: "她接过红线、刻字簿和那一千字。村民仍看着你。不是审判，也不是感谢——他们只是活在你留下的文字里。",
+      question: "下一次碑面再满时，我应该先保护答案，还是先保护人们仍有资格追问？"
+    }
+  ];
+  const current = beats[beat];
+  return (
+    <section className="screen gaze-ending" data-screen-label="终局村民凝视">
+      <img className="gaze-ending-image" src="assets/ending-villagers-gaze.webp" alt="灾后的千字村中，六名村民停下手里的工作，直视画面外的守字人" />
+      <div className="gaze-ending-shade"></div>
+      <article className="gaze-ending-copy" aria-live="polite">
+        <span>{current.kicker}</span>
+        <h1>{current.title.split("\n").map(function (line, index) { return <React.Fragment key={line}>{index ? <br /> : null}{line}</React.Fragment>; })}</h1>
+        {current.body ? <p>{current.body}</p> : null}
+        {current.lines ? <div className="gaze-lines">{current.lines.map(function (line) { return <blockquote key={line[0]}><strong>{line[0]}</strong><p>“{line[1]}”</p></blockquote>; })}</div> : null}
+        {current.echoes && current.echoes.length ? <div className="gaze-echoes">{current.echoes.map(function (change) { return <div key={change.id + change.round}><span>{change.title}</span><strong>{change.fromLabel} → {change.toLabel}</strong><p>{change.note}</p></div>; })}</div> : null}
+        {current.question ? <blockquote className="inheritance-question"><strong>小满</strong><p>“{current.question}”</p></blockquote> : null}
+      </article>
+      <footer className="gaze-ending-actions">
+        <button className="secondary-button" type="button" onClick={beat === 0 ? props.onBack : function () { setBeat(beat - 1); }}>{beat === 0 ? "返回封存反馈" : "上一段"}</button>
+        <span>{beat + 1} / {beats.length}</span>
+        <button className="primary-button" type="button" onClick={beat === beats.length - 1 ? props.onContinue : function () { setBeat(beat + 1); }}>{beat === beats.length - 1 ? "走进村庄，核对村志" : beat === 0 ? "抬头，看清他们" : "继续听"}</button>
+      </footer>
     </section>
   );
 }
@@ -1191,6 +1277,18 @@ function App() {
     return <div className="loading-screen" data-screen-label="载入中"><span>千字村</span><p>正在展开旧碑……</p></div>;
   }
 
+  if (import.meta.env.DEV && new URLSearchParams(window.location.search).get("ending-preview") === "1") {
+    const previewSelections = Object.assign({}, createInitialSelections(memoryData), {
+      E01: "warning", E02: "worker", E04: "method", E05: "principle", E07: "treatment",
+      E08: "principle", E10: "verification", E11: "full", E12: "peace", E14: "order", E15: "full"
+    });
+    const previewHistory = [
+      { id: "M05", round: 9, title: "柳氏造桥记", fromLabel: "完整记录", toLabel: "从碑上删去", note: "柳家三代修桥的姓名与责任离开公共记忆。" },
+      { id: "M02", round: 14, title: "前次洪水死者", fromLabel: "完整记录", toLabel: "从碑上删去", note: "八名死者的姓名不再能从碑上读到。" }
+    ];
+    return <GazeEndingScreen selections={previewSelections} directAnswers={{ E05: "accept", E08: "accept" }} history={previewHistory} onBack={goHome} onContinue={goHome} />;
+  }
+
   if (game.view === "title") {
     return <TitleScreen hasSave={hasSave} onNew={startNew} onContinue={continueStored} onDuty={function () { setGame(function (current) { return Object.assign({}, current, { view: "duty" }); }); }} />;
   }
@@ -1292,6 +1390,7 @@ function App() {
             });
           });
         }}
+        onBack={function () { setGame(function (current) { return Object.assign({}, current, { view: "opening" }); }); }}
         onHome={goHome}
         onReset={resetGame}
       />
@@ -1349,6 +1448,7 @@ function App() {
             });
           });
         }}
+        onBack={function () { setGame(function (current) { return Object.assign({}, current, { view: "event" }); }); }}
         onReset={resetGame}
       />
     );
@@ -1366,7 +1466,7 @@ function App() {
         directAnswers={game.directAnswers}
         onContinue={function () {
           if (story.round === 15) {
-            setGame(function (current) { return Object.assign({}, current, { view: "epilogue" }); });
+            setGame(function (current) { return Object.assign({}, current, { view: "gaze" }); });
           } else if (story.round === 5 || story.round === 10) {
             setGame(function (current) { return Object.assign({}, current, { view: "interlude" }); });
           } else {
@@ -1404,6 +1504,10 @@ function App() {
         }}
       />
     );
+  }
+
+  if (game.view === "gaze") {
+    return <GazeEndingScreen selections={game.selections} directAnswers={game.directAnswers} history={game.history} onBack={function () { setGame(function (current) { return Object.assign({}, current, { view: "reaction" }); }); }} onContinue={function () { setGame(function (current) { return Object.assign({}, current, { view: "epilogue" }); }); }} />;
   }
 
   if (game.view === "epilogue") {

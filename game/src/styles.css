@@ -21,6 +21,136 @@
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
 }
 
+/* 终局反向凝视：先让承担后果的人出现，再进入村志附录。 */
+.gaze-ending {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  color: #f3ead6;
+  background: #080807;
+}
+
+.gaze-ending-image,
+.gaze-ending-shade {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gaze-ending-image {
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.76) saturate(0.82);
+}
+
+.gaze-ending-shade {
+  background: linear-gradient(180deg, rgba(5, 5, 4, 0.06), rgba(5, 5, 4, 0.16) 42%, rgba(5, 5, 4, 0.93) 100%);
+}
+
+.gaze-ending-copy {
+  position: relative;
+  z-index: 2;
+  width: min(900px, calc(100% - 64px));
+  min-height: calc(100svh - 104px);
+  margin: 0 auto;
+  padding: clamp(72px, 12vh, 150px) 0 138px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
+}
+
+.gaze-ending-copy > span {
+  color: #ddb978;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+}
+
+.gaze-ending-copy h1 {
+  margin: 12px 0 18px;
+  color: #fff6e3;
+  font-family: var(--display);
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1.18;
+}
+
+.gaze-ending-copy > p {
+  max-width: 780px;
+  margin: 0;
+  color: #e8ddc8;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.gaze-lines,
+.gaze-echoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gaze-lines blockquote,
+.inheritance-question,
+.gaze-echoes > div {
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(238, 228, 203, 0.24);
+  background: rgba(12, 11, 9, 0.76);
+  backdrop-filter: blur(7px);
+}
+
+.gaze-lines strong,
+.inheritance-question strong,
+.gaze-echoes span {
+  color: #dfbd7d;
+  font-size: 16px;
+}
+
+.gaze-lines p,
+.inheritance-question p,
+.gaze-echoes p {
+  margin: 6px 0 0;
+  color: #eee4d1;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.gaze-echoes strong {
+  display: block;
+  margin-top: 5px;
+  color: #fff3dc;
+  font-size: 17px;
+}
+
+.inheritance-question {
+  max-width: 760px;
+}
+
+.gaze-ending-actions {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) auto minmax(240px, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 14px max(24px, calc((100vw - 900px) / 2)) max(14px, env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, transparent, rgba(5, 5, 4, 0.96) 32%);
+}
+
+.gaze-ending-actions > span {
+  color: #b9ac95;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.gaze-ending-actions button {
+  min-height: 50px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1043,6 +1173,22 @@ button:disabled {
   color: #725d49;
   font-size: 14px;
   line-height: 1.6;
+}
+
+.event-action-buttons,
+.editor-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.event-action-buttons .secondary-button {
+  min-height: 46px;
+}
+
+.mobile-editor-tabs {
+  display: none;
 }
 
 /* 编辑器 */
