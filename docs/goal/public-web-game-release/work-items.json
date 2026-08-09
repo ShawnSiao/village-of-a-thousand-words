@@ -1,0 +1,73 @@
+{
+  "goal": "public-web-game-release",
+  "updated_at": "2026-08-09",
+  "items": [
+    {
+      "id": "phase-0-public-repository",
+      "title": "将仓库改为公开",
+      "status": "done",
+      "source": "GitHub repository settings",
+      "batch": 0,
+      "notes": "仓库已由 PRIVATE 改为 PUBLIC。",
+      "evidence": [
+        "gh repo view 返回 visibility=PUBLIC、isPrivate=false"
+      ],
+      "updated_at": "2026-08-09"
+    },
+    {
+      "id": "phase-1-visual-baseline",
+      "title": "完成移动端与终局视觉原型",
+      "status": "done",
+      "source": "designs/千字村公开游戏原型十一",
+      "batch": 1,
+      "notes": "ImageGen 先生成手机构图、终局凝视与应用图标，Baoyu Design 再实现独立交互原型。",
+      "evidence": [
+        "designs/千字村公开游戏原型十一/千字村公开游戏交互原型.html",
+        "390x844、768x1024、1440x900 无横向溢出",
+        "候选碑文和旧记忆在选择后均保持可见并可改选",
+        "终局按人物命运、碑外残响与传碑顺序展开"
+      ],
+      "updated_at": "2026-08-09"
+    },
+    {
+      "id": "phase-2-production-app",
+      "title": "迁移十五回合正式游戏工程",
+      "status": "in_progress",
+      "source": "game/",
+      "batch": 2,
+      "notes": "Vite、React、TypeScript、版本化存档。",
+      "evidence": [],
+      "updated_at": "2026-08-09"
+    },
+    {
+      "id": "phase-3-mobile-ending",
+      "title": "完成移动端流程与反向凝视终局",
+      "status": "pending",
+      "source": "game/src/screens",
+      "batch": 3,
+      "notes": "保留五地点结构，改为具体人物与选择回溯。",
+      "evidence": [],
+      "updated_at": "2026-08-09"
+    },
+    {
+      "id": "phase-4-tests-optimization",
+      "title": "完成自动化检查与资源优化",
+      "status": "pending",
+      "source": "game/src/tests and .github/workflows",
+      "batch": 4,
+      "notes": "类型、内容、规则、移动端和完整流程验证。",
+      "evidence": [],
+      "updated_at": "2026-08-09"
+    },
+    {
+      "id": "phase-5-pages-release",
+      "title": "发布 GitHub Pages 并在线验收",
+      "status": "pending",
+      "source": ".github/workflows/deploy-pages.yml",
+      "batch": 5,
+      "notes": "发布 game/dist 并验证公开 URL。",
+      "evidence": [],
+      "updated_at": "2026-08-09"
+    }
+  ]
+}

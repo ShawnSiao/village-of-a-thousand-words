@@ -1,0 +1,18 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "千字村公开游戏交互原型": {
+      "versions": [
+        {
+          "path": "千字村公开游戏交互原型.html",
+          "createdAt": "2026-08-09T11:39:58.645Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-08-09T11:39:58.645Z",
+  "updatedAt": "2026-08-09T11:48:37.927Z"
+}
